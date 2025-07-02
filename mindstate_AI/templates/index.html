@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindState AI | Mental Health Predictor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <span class="logo-icon">✦</span>
+          <h3>MindState AI</h3>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <h1>Your Mental Wellbeing Companion</h1>
+          <p class="subtitle">
+            Express your thoughts and receive personalized insights to support
+            your mental health journey
+          </p>
+        </section>
+
+        <section class="predictor-card">
+          <div class="card-inner">
+            <h2>Share Your Thoughts</h2>
+            <p class="description">
+              Your words matter. Write freely in a safe, private space.
+            </p>
+
+            <form method="POST" action="/predict" id="thoughtForm">
+              <div class="form-group">
+                <textarea
+                  name="text"
+                  id="thoughtText"
+                  placeholder="How are you feeling today?"
+                  required
+                >
+{{ user_input or '' }}</textarea
+                >
+                <div class="textarea-border"></div>
+              </div>
+
+              <button type="submit" class="btn-predict">
+                <span>Analyze Insights</span>
+                <div class="btn-glow"></div>
+              </button>
+            </form>
+
+            <div class="result-container {% if prediction %}visible{% endif %}">
+              <div class="result-card">
+                <h3>Your Personalized Insight</h3>
+                <p class="result-text">
+                  {{ prediction or 'Your analysis will appear here.' }}
+                </p>
+                <div class="result-decoration"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2025 MindState AI. All insights are private and confidential.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Support Resources</a>
+        </div>
+      </footer>
+    </div>
+
+    <div class="background-elements">
+      <div class="bg-circle circle-1"></div>
+      <div class="bg-circle circle-2"></div>
+      <div class="bg-circle circle-3"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
