@@ -165,7 +165,7 @@ header {
 .description {
   color: var(--text-medium);
   margin-bottom: var(--spacing-md);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 /* Form Styles */
